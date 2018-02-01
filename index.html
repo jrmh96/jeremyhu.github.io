@@ -7,7 +7,7 @@
 <html>
 
 <head>
-    <title>Identity by HTML5 UP</title>
+    <title>Jeremy Hu</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
@@ -15,6 +15,8 @@
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+
 </head>
 
 <body class="is-loading">
@@ -72,6 +74,16 @@
                     <li><a href="https://github.com/jrmh96" class="fa-github">Github</a></li>
                 </ul>
                 <a class=button href="assets/Resume2017.pdf">Resume</a>
+                <a class=button id="about">About Me</a>
+                <div class="modal">
+                    <div class="modal-content">
+                        <span class="close-button">&times;</span>
+                        <h1>Hello!</h1>
+                        <p>My name is Jeremy. I am an undergrad at University of Maryland, College Park. I am a dual major in Computer Science and Economics.
+                            My strongest interests lie in web development and AI/Machine Learning.
+                        </p>
+                    </div>
+                </div>
             </footer>
         </section>
 
@@ -96,6 +108,24 @@
             });
             document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
         }
+        let modal = document.querySelector(".modal");
+        let trigger = document.querySelector("#about");
+        let closeButton = document.querySelector(".close-button");
+
+        function toggleModal() {
+            modal.classList.toggle("show-modal");
+        }
+
+        function windowOnClick(event) {
+            if (event.target === modal) {
+                toggleModal();
+            }
+        }
+
+        trigger.addEventListener("click", toggleModal);
+        closeButton.addEventListener("click", toggleModal);
+        window.addEventListener("click", windowOnClick);
+	
     </script>
 
 </body>
